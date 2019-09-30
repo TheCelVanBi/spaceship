@@ -15,7 +15,7 @@ init_spaceship(Spaceship self, char *name){
 		/*Malloc failed*/
 		return -1;
 	}
-	strncpy(self->name, name, name_length);
+	strncpy(self->name, name, name_length+1);
 	self->health_points = rand()%21 + 80;
 	self->defense_points = rand()%6 + 5;
 	self->attack_points = rand()%11 + 10;

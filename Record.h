@@ -1,4 +1,3 @@
-
 typedef struct Record_struct *Record;
 struct Record_struct {
 	BattleSimulation sim;
@@ -8,5 +7,6 @@ struct Record_struct {
 } Record_struct;
 
 int record_battle(BattleSimulation sim, Record rec);
+void print_record(Record rec);
 void free_record(Record rec);
 

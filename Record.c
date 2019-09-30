@@ -16,17 +16,19 @@ int record_battle(BattleSimulation sim, Record rec){
 	main_battle("USS Enterprise","Borg Drone", sim);
 	rec->ship_hp = sim->ship_hp;
 	rec->enemy_hp = sim->enemy_hp;
-//	printf("Record got winner from simulation %s\n",sim->winner);
 	rec->winner = malloc(sizeof(sim->winner)+1);
 	strcpy(rec->winner,sim->winner);
 	rec->rounds_lasted = sim->rounds_lasted;
+	printf("Record got data from simulation {%d, %d, %s, %d}\n",sim->ship_hp,sim->enemy_hp,sim->winner,sim->rounds_lasted);
 	/*printf("--> Initial values: \nOur ship HP: %d\n",rec->ship_hp);
 	printf("Enemy ship HP: %d\n",rec->enemy_hp);
 	printf("--> Final Results:\nRounds lasted: %d\n",rec->rounds_lasted);*/
 //	printf("%s survived the round.\n",rec->winner);
 	return 0;
 }
-
+void print_record(Record rec){
+	printf("-->Initial Ship HP %d, Initial Enemy HP %d, Rounds Lasted %d, Winner %s\n",rec->ship_hp,rec->enemy_hp,rec->rounds_lasted,rec->winner);
+}
 void free_record(Record rec){
 	free(rec->winner);
 	free(rec);

@@ -30,6 +30,7 @@ main(){
 	log = (Log) malloc(sizeof(Log_struct));
 	init_log(log);
 	for(int i=0;i<10;i++) {
+		//printf("Iteration %d\n",i+1);
 		BattleSimulation sim;
 		sim = (BattleSimulation) malloc(sizeof(BattleSimulation_struct));
 		init_battlesim(sim);
@@ -41,5 +42,6 @@ main(){
 		free_record(rec);
 	}
 	print_log(log);
+	free_log(log);
 	return 0;
 }
