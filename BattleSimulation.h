@@ -5,5 +5,5 @@ struct BattleSimulation_struct {
 } BattleSimulation_struct;
 
 int init_battlesim(BattleSimulation sim);
-void main_battle(char ship[], char enemy[], BattleSimulation sim);
+void main_battle(char *ship, char *enemy, BattleSimulation sim);
 void free_sim(BattleSimulation self);

@@ -5,17 +5,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "Spaceship.h"
 #include "BattleSimulation.h"
 #include "Record.h"
+#include "Log.h"
 int
 main(){
 	srand(time(NULL));
-	BattleSimulation b;
-	b = (BattleSimulation) malloc(sizeof(BattleSimulation_struct));
-	init_battlesim(b);
-	Record r;
-	r = (Record) malloc(sizeof(Record_struct));
 	/*
 	//test epic battle
 	init_battlesim(b,100,1);
@@ -31,8 +26,20 @@ main(){
 	free_spaceship(s1);
 	free_spaceship(s2);
 */
-	record_battle(b,r);
-	free_sim(b);
-	free_record(r);
+	Log log;
+	log = (Log) malloc(sizeof(Log_struct));
+	init_log(log);
+	for(int i=0;i<10;i++) {
+		BattleSimulation sim;
+		sim = (BattleSimulation) malloc(sizeof(BattleSimulation_struct));
+		init_battlesim(sim);
+		Record rec;
+		rec = (Record) malloc(sizeof(Record_struct));
+		record_battle(sim,rec);
+		update_log(log,rec);
+		free_sim(sim);
+		free_record(rec);
+	}
+	print_log(log);
 	return 0;
 }

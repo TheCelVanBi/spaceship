@@ -1,7 +1,8 @@
 typedef struct Log_struct *Log;
 struct Log_struct {
-	Record records_array[100];
-	u_int8_t ctr;
+	short ctr;
+	Record records_array[1000];
 } Log_struct;
-
-int log_session(Log self, Record rec);
+int init_log(Log self);
+int update_log(Log self, Record rec);
+void print_log(Log self);

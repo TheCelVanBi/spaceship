@@ -1,3 +1,4 @@
+
 typedef struct Record_struct *Record;
 struct Record_struct {
 	BattleSimulation sim;
